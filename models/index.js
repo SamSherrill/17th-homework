@@ -1,1 +1,3 @@
-// Not necessry we think
+module.exports = {
+    Workout: require("./workout.js"),
+}
