@@ -22,10 +22,10 @@ The user should be able to:
 
   * Add new exercises to a new workout plan.
 
-  * View multiple the combined weight of multiple exercises on the `stats` page.
+  * View multiple the combined weight of multiple exercises on the [stats](https://gt-fitness-tracker.herokuapp.com/stats) page.
 
 ## Links
 
-The deployed application: [https://dry-island-23170.herokuapp.com](https://dry-island-23170.herokuapp.com/)
+The deployed application: [https://gt-fitness-tracker.herokuapp.com/](https://gt-fitness-tracker.herokuapp.com/)
 
 The Github repository: [https://github.com/SamSherrill/17th-homework](https://github.com/SamSherrill/17th-homework)
