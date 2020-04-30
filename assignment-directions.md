@@ -22,6 +22,8 @@ The user should be able to:
 
   * View multiple the combined weight of multiple exercises on the `stats` page.
 
+/api/workouts/range is looking for last 7 workouts
+
 ## Submission on BCS
 
 You are required to submit the following:
