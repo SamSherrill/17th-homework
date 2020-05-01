@@ -9,7 +9,8 @@ fetch("/api/workouts/range")
   });
 
 // This doesn't seem to do anything. Seems to be redundant with the fetch above
-API.getWorkoutsInRange()
+// API.getWorkoutsInRange()
+// Commented out the above line from the starter code, and nothing broke
 
 function generatePalette() {
   const arr = [

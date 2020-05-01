@@ -1,44 +1,66 @@
-// THERE IS ALREADY AN API.JS IN THE SUPPLIED STARTER FILES
-// HOWEVER, it doesn't have a router, and doesn't export anything
-
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
-// Need post: only posting one, so use .create()
-// Need to get -- needs to be a get all
+// api.js is the front end requests for what this file, api-routes.js, must do in the backend
+// I need to:
+// 1. answer getLastWorkout() - DONE
+// 2. answer addExercise() - DONE
+// 3. answer createWorkout() - DONE
+// 4. answer getWorkoutsInRange() - DONE
 
-router.post("/api/workouts/", ({
-  body
-}, res) => {
-  Workout.create(body)
-    .then(dbWorkout => {
-      res.json(dbWorkout);
-    })
-    .catch(err => {
-      res.status(404).json(err);
-    });
-});
-
+// 1. answer getLastWorkout() - DONE
 router.get("/api/workouts", (req, res) => {
-  Workout.find({})
-    //.sort({date: -1}) // might be sorted for me on the front end
+  Workout.find()
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
     .catch(err => {
-      res.status(404).json(err);
+      res.status(500).json(err);
     });
 });
 
-// THIS ROUTE WORKS NOW: Responds to stats.js fetch & api.js getWorkoutsInRange()
+// 2. answer addExercise() - DONE
+// This is a PUT, because we're updating a workout with a new exercise
+// We push the new exercise to the exercises array
+router.put("/api/workouts/:id", (req, res) => {
+  console.log(req.body);
+  Workout.findByIdAndUpdate(req.params.id, {
+      $push: {
+        exercises: req.body
+      }
+    })
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+// 3. answer createWorkout() - DONE
+// This is a POST, because we're creating a new workout
+router.post("/api/workouts", (req, res) => {
+  Workout.create(req.body)
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+// 4. answer getWorkoutsInRange() - DONE
+// Responds to stats.js fetch & api.js getWorkoutsInRange()
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
+    .sort("-day")
     .limit(7)
     .then(dbWorkout => {
+      console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch(err => {
-      res.status(404).json(err);
+      res.status(500).json(err);
     });
 });
 
