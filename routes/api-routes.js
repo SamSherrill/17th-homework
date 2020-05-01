@@ -5,15 +5,14 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 // Need post: only posting one, so use .create()
-// Need to get -- needs to be a get all, 
-// Swithc out transaction for workout
+// Need to get -- needs to be a get all
 
-router.post("/api/transaction", ({
+router.post("/api/workouts/", ({
   body
 }, res) => {
   Workout.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+    .then(dbWorkout => {
+      res.json(dbWorkout);
     })
     .catch(err => {
       res.status(404).json(err);
@@ -31,7 +30,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// THIS ROUTE WORKS NOW: Responds to stats.js fetch
+// THIS ROUTE WORKS NOW: Responds to stats.js fetch & api.js getWorkoutsInRange()
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
     .limit(7)
