@@ -2,7 +2,7 @@
 
 This application is a fitness tracker created using JavaScript, NodeJS, Express, & MongoDB.
 
-![App Preview](#)
+![App Preview](./screenshots/app-home-page.jpg)
 
 ## User Story
 
@@ -18,11 +18,13 @@ When the user loads the page, they are given the option to create a new workout,
 
 The user is able to:
 
-  * Add exercises to a previous workout plan.
+  * Add new exercises to a new workout plan, or continue a previous workout by adding new exercises to it.
 
-  * Add new exercises to a new workout plan.
+  ![add-exercise](./screenshots/add-exercise.jpg)
 
-  * View the combined weight of multiple exercises on the [stats](https://gt-fitness-tracker.herokuapp.com/stats) page.
+  * View the combined information from the last 7 workouts on the stats dashboard.
+
+  ![stats-dashboard](./screenshots/stats-dashboard.jpg)
 
 ## Links
 
